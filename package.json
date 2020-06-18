@@ -1,0 +1,36 @@
+{
+  "name": "our-own-eslint-fix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./client/out/extension",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "publisher": "craig-vscode-samples",
+  "activationEvents": [
+    "onLanguage:plaintext"
+  ],
+  "configuration": {
+    "type": "object",
+    "title": "Craigs example configuration",
+    "properties": {
+      "languageServerExample.maxNumberOfProblems": {
+        "scope": "resource",
+        "type": "number",
+        "default": 100,
+        "description": "Controls the maximum number of problems produced by the server."
+      }
+    }
+  },
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.0",
+    "typescript": "^3.9.4"
+  }
+}
