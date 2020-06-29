@@ -14,7 +14,8 @@ const Statements = {
   },
   CallExpression: function (node) {
     const result = [node.callee.name];
-    result.push("(\n");
+    result.push("(");
+    result.push(linebreak);
     const length = node.arguments.length;
     const argNames = node.arguments.map(
       (item, i) =>
@@ -29,7 +30,7 @@ const generateExpression = (node) => {
 };
 
 export function activate(context: ExtensionContext) {
-  // File highlight + reverse part
+  // File highlight
   const disposable = commands.registerCommand(
     "extension.reverseWord",
     async function () {
