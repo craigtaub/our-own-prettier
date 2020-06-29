@@ -1,23 +1,22 @@
 {
-  "name": "our-own-eslint-fix",
+  "name": "our-own-prettier",
   "version": "1.0.0",
   "description": "",
   "main": "./client/out/extension",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc -b",
     "watch": "tsc -b -w"
   },
   "author": "",
   "license": "ISC",
-  "publisher": "craig-vscode-samples",
+  "publisher": "craig-vscode-extension",
   "activationEvents": [
-    "onCommand:extension.reverseWord"
+    "onCommand:extension.craigifyIt"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "extension.reverseWord",
+        "command": "extension.craigifyIt",
         "title": "Craigify it"
       }
     ]

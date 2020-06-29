@@ -1,5 +1,7 @@
 # our-own-prettier
 
+A simple VSCode extension which auto-formats 1 scenario.
+
 ### Before
 
 ```javascript

@@ -32,7 +32,7 @@ const generateExpression = (node) => {
 export function activate(context: ExtensionContext) {
   // File highlight
   const disposable = commands.registerCommand(
-    "extension.reverseWord",
+    "extension.craigifyIt",
     async function () {
       // Get the active text editor
       const editor = window.activeTextEditor;
