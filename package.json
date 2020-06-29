@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^12.12.0",
-    "typescript": "^3.9.4"
+    "typescript": "^3.9.4",
+    "abstract-syntax-tree": "^2.8.1"
   }
 }
