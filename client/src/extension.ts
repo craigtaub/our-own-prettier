@@ -1,5 +1,5 @@
 import * as path from "path";
-import { workspace, ExtensionContext } from "vscode";
+import { commands, window, workspace, ExtensionContext } from "vscode";
 
 import {
   LanguageClient,
@@ -34,10 +34,10 @@ export function activate(context: ExtensionContext) {
   let clientOptions: LanguageClientOptions = {
     // Register the server for plain text documents
     documentSelector: [{ scheme: "file", language: "plaintext" }],
-    synchronize: {
-      // Notify the server about file changes to '.clientrc files contained in the workspace
-      fileEvents: workspace.createFileSystemWatcher("**/.clientrc"),
-    },
+    // synchronize: {
+    //   // Notify the server about file changes to '.clientrc files contained in the workspace
+    //   fileEvents: workspace.createFileSystemWatcher("**/.clientrc"),
+    // },
   };
 
   // Create the language client and start the client.
@@ -50,6 +50,29 @@ export function activate(context: ExtensionContext) {
 
   // Start the client. This will also launch the server
   client.start();
+
+  // File highlight + reverse part
+  const disposable = commands.registerCommand(
+    "extension.reverseWord",
+    function () {
+      // Get the active text editor
+      const editor = window.activeTextEditor;
+
+      if (editor) {
+        const document = editor.document;
+        const selection = editor.selection;
+
+        // Get the word within the selection
+        const word = document.getText(selection);
+        const reversed = word.split("").reverse().join("");
+        editor.edit((editBuilder) => {
+          editBuilder.replace(selection, reversed);
+        });
+      }
+    }
+  );
+
+  context.subscriptions.push(disposable);
 }
 
 export function deactivate(): Thenable<void> | undefined {

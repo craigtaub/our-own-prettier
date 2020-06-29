@@ -12,8 +12,17 @@
   "license": "ISC",
   "publisher": "craig-vscode-samples",
   "activationEvents": [
-    "onLanguage:plaintext"
+    "onLanguage:plaintext",
+    "onCommand:extension.reverseWord"
   ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.reverseWord",
+        "title": "Reverse Word"
+      }
+    ]
+  },
   "configuration": {
     "type": "object",
     "title": "Craigs example configuration",
