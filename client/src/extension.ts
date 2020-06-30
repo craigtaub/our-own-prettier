@@ -14,13 +14,16 @@ const Statements = {
   },
   CallExpression: function (node) {
     const result = [node.callee.name];
+    let argNames = [];
     result.push("(");
-    result.push(linebreak);
     const length = node.arguments.length;
-    const argNames = node.arguments.map(
-      (item, i) =>
-        indent + item.name + (i == length - 1 ? linebreak : coma + linebreak)
-    );
+    if (length > 0) {
+      result.push(linebreak);
+      argNames = node.arguments.map(
+        (item, i) =>
+          indent + item.name + (i == length - 1 ? linebreak : coma + linebreak)
+      );
+    }
     return [...result, ...argNames, ")"];
   },
 };
