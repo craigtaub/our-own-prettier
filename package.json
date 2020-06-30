@@ -11,13 +11,13 @@
   "license": "ISC",
   "publisher": "craig-vscode-extension",
   "activationEvents": [
-    "onCommand:extension.craigifyIt"
+    "onCommand:extension.SexifyIt"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "extension.craigifyIt",
-        "title": "Craigify it"
+        "command": "extension.SexifyIt",
+        "title": "Sexify it"
       }
     ]
   },

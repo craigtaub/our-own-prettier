@@ -2,29 +2,40 @@
 
 A simple VSCode extension which auto-formats 1 scenario.
 
-## Scenario 1
+## How to run the extension
 
-### Before
+1. Checkout + install code
+2. > npm run compile
+3. F5 (launch client in debug mode)
+4. Open `files/test.txt` + highlight text
+5. Open "Command Palette"
+6. Click "Sexify it"
+
+## Scenarios
+
+### Scenario 1
+
+#### Before
 
 ```javascript
 myFunction();
 ```
 
-### After
+#### After
 
 ```javascript
 myFunction();
 ```
 
-## Scenario 2
+### Scenario 2
 
-### Before
+#### Before
 
 ```javascript
 myFunction(one, two, three);
 ```
 
-### After
+#### After
 
 ```
 myFunction(

@@ -35,7 +35,7 @@ const generateExpression = (node) => {
 export function activate(context: ExtensionContext) {
   // File highlight
   const disposable = commands.registerCommand(
-    "extension.craigifyIt",
+    "extension.SexifyIt",
     async function () {
       // Get the active text editor
       const editor = window.activeTextEditor;
