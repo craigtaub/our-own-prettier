@@ -8,6 +8,7 @@ const indent = space + space;
 const linebreak = "\n";
 const coma = ",";
 
+// AST statements
 const Statements = {
   ExpressionStatement: function (node) {
     const result = generateExpression(node.expression);
@@ -28,16 +29,24 @@ const Statements = {
     return [...result, ...argNames, ")"];
   },
 };
+// Statement utilities
 const generateExpression = (node) => {
   const result = Statements[node.type](node);
   return result;
 };
 
+function parseAndReprint(word) {
+  const astree = ast.parse(word);
+  return astree.body
+    .map((astBody) => Statements[astBody.type](astBody))
+    .flat()
+    .join("");
+}
+// Extension
 function activate(context) {
-  // File highlight
   const disposable = commands.registerCommand(
     "extension.SexifyIt",
-    async function () {
+    function () {
       // Get the active text editor
       const editor = window.activeTextEditor;
 
@@ -47,15 +56,12 @@ function activate(context) {
 
         // Get the word within the selection
         const word = document.getText(selection);
+        // Parse, process and re-print AST
+        const code = parseAndReprint(word);
 
-        // const ast = await import("abstract-syntax-tree");
-        const astree = ast.parse(word);
-        const code = astree.body
-          .map((astBody) => Statements[astBody.type](astBody))
-          .flat();
-
+        // Replace selection with new formatted code
         editor.edit((editBuilder) => {
-          editBuilder.replace(selection, code.join(""));
+          editBuilder.replace(selection, code);
         });
       }
     }
