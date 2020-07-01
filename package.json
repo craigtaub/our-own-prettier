@@ -2,11 +2,7 @@
   "name": "our-own-prettier",
   "version": "1.0.0",
   "description": "",
-  "main": "./client/out/extension",
-  "scripts": {
-    "compile": "tsc -b",
-    "watch": "tsc -b -w"
-  },
+  "main": "./client/src/extension",
   "author": "",
   "license": "ISC",
   "publisher": "craig-vscode-extension",

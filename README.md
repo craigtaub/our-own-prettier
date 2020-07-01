@@ -5,11 +5,10 @@ A simple VSCode extension which auto-formats 1 scenario.
 ## How to run the extension
 
 1. Checkout + install code
-2. > npm run compile
-3. F5 (launch client in debug mode)
-4. Open `files/test.txt` + highlight text
-5. Open "Command Palette"
-6. Click "Sexify it"
+2. F5 (launch client in debug mode)
+3. Open `files/test.txt` + highlight text
+4. Open "Command Palette"
+5. Click "Sexify it"
 
 ## Scenarios
 

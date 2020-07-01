@@ -1,5 +1,6 @@
-import * as path from "path";
-import { commands, window, ExtensionContext } from "vscode";
+const path = require("path");
+const { commands, window, ExtensionContext } = require("vscode");
+const ast = require("abstract-syntax-tree");
 
 // Utils
 const space = " ";
@@ -32,7 +33,7 @@ const generateExpression = (node) => {
   return result;
 };
 
-export function activate(context: ExtensionContext) {
+function activate(context) {
   // File highlight
   const disposable = commands.registerCommand(
     "extension.SexifyIt",
@@ -47,7 +48,7 @@ export function activate(context: ExtensionContext) {
         // Get the word within the selection
         const word = document.getText(selection);
 
-        const ast = await import("abstract-syntax-tree");
+        // const ast = await import("abstract-syntax-tree");
         const astree = ast.parse(word);
         const code = astree.body
           .map((astBody) => Statements[astBody.type](astBody))
@@ -62,3 +63,5 @@ export function activate(context: ExtensionContext) {
 
   context.subscriptions.push(disposable);
 }
+
+exports.activate = activate;
