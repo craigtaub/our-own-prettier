@@ -1,9 +1,9 @@
 {
   "name": "our-own-prettier",
   "version": "1.0.0",
-  "description": "",
-  "main": "./client/src/extension",
-  "author": "",
+  "description": "prettier vscode extension in 20 lines",
+  "main": "./src/extension",
+  "author": "craigtaub@gmail.com",
   "license": "ISC",
   "publisher": "craig-vscode-extension",
   "activationEvents": [
@@ -33,8 +33,6 @@
     "vscode": "^1.43.0"
   },
   "devDependencies": {
-    "@types/node": "^12.12.0",
-    "typescript": "^3.9.4",
     "abstract-syntax-tree": "^2.8.1"
   }
 }
