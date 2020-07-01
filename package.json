@@ -17,18 +17,6 @@
       }
     ]
   },
-  "configuration": {
-    "type": "object",
-    "title": "Craigs example configuration",
-    "properties": {
-      "languageServerExample.maxNumberOfProblems": {
-        "scope": "resource",
-        "type": "number",
-        "default": 100,
-        "description": "Controls the maximum number of problems produced by the server."
-      }
-    }
-  },
   "engines": {
     "vscode": "^1.43.0"
   },
