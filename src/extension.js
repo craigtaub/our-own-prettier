@@ -51,17 +51,15 @@ function activate(context) {
       const editor = window.activeTextEditor;
 
       if (editor) {
-        const document = editor.document;
-        const selection = editor.selection;
+        const documentText = editor.document.getText();
+        const selectionRange = editor.selection;
 
-        // Get the word within the selection
-        const word = document.getText(selection);
         // Parse, process and re-print AST
-        const code = parseAndReprint(word);
+        const code = parseAndReprint(documentText);
 
         // Replace selection with new formatted code
         editor.edit((editBuilder) => {
-          editBuilder.replace(selection, code);
+          editBuilder.replace(selectionRange, code);
         });
       }
     }
