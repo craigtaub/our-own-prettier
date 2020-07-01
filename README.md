@@ -6,7 +6,7 @@ A simple VSCode extension which auto-formats 1 scenario.
 
 1. Checkout + install code
 2. F5 (launch client in debug mode)
-3. Open `files/test.txt` + highlight text
+3. Open `files/test.js` + highlight code
 4. Open "Command Palette"
 5. Click "Sexify it"
 
