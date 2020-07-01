@@ -2,11 +2,15 @@ const path = require("path");
 const { commands, window, ExtensionContext } = require("vscode");
 const ast = require("abstract-syntax-tree");
 
-// Utils
+// AST utilities
 const space = " ";
 const indent = space + space;
 const linebreak = "\n";
 const coma = ",";
+const generateExpression = (node) => {
+  const result = Statements[node.type](node);
+  return result;
+};
 
 // AST statements
 const Statements = {
@@ -28,11 +32,6 @@ const Statements = {
     }
     return [...result, ...argNames, ")"];
   },
-};
-// Statement utilities
-const generateExpression = (node) => {
-  const result = Statements[node.type](node);
-  return result;
 };
 
 function parseAndReprint(word) {
